@@ -34,7 +34,13 @@ require 'spree/testing_support/url_helpers'
 require 'spree_simple_sales/factories'
 
 RSpec.configure do |config|
-  config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
+
+  Capybara.javascript_driver = :poltergeist
+
+  Capybara.register_driver(:poltergeist) do |app|
+    Capybara::Poltergeist::Driver.new app, js_errors: true, timeout: 60
+  end
 
   # Infer an example group's spec type from the file location.
   config.infer_spec_type_from_file_location!
