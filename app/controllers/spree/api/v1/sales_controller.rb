@@ -3,7 +3,7 @@ module Spree
         module V1
             class SalesController < Spree::Api::BaseController
                 def index
-                    @products = Spree::Product.joins(:variants_including_master).where('spree_variants.sale_price is not null').distinct
+                    @products = Spree::Product.joins(:variants_including_master).where('spree_variants.sale_price is not null').uniq
                     
                     expires_in 15.minutes, public: true
                     
