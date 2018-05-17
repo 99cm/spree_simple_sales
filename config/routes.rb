@@ -1,6 +1,6 @@
 Spree::Core::Engine.add_routes do
   
-  get "/sale" => "home#sale"
+  get "/sale", to: "home#sale"
   
   # Add your extension routes here
   namespace :api, defaults: { format: 'json' } do
