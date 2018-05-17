@@ -30,6 +30,11 @@ require 'spree/testing_support/controller_requests'
 require 'spree/testing_support/factories'
 require 'spree/testing_support/url_helpers'
 
+require 'spree/testing_support/preferences'
+require 'spree/api/testing_support/caching'
+require 'spree/api/testing_support/helpers'
+require 'spree/api/testing_support/setup'
+
 # Requires factories defined in lib/spree_simple_sales/factories.rb
 require 'spree_simple_sales/factories'
 
@@ -58,6 +63,20 @@ RSpec.configure do |config|
   # Adds convenient methods to request Spree's controllers
   # spree_get :index
   config.include Spree::TestingSupport::ControllerRequests, type: :controller
+
+  config.include FactoryBot::Syntax::Methods
+  config.include Spree::Api::TestingSupport::Helpers, type: :controller
+  config.extend Spree::Api::TestingSupport::Setup, type: :controller
+  config.include Spree::TestingSupport::Preferences, type: :controller
+
+  config.before do
+    Spree::Api::Config[:requires_authentication] = true
+  end
+
+  config.include VersionCake::TestHelpers, type: :controller
+  config.before(:each, type: :controller) do
+      set_request_version('', 1)
+  end
 
   # == Mock Framework
   #
