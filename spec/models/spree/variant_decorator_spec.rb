@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Spree::Variant do
+RSpec.describe Spree::Variant do
   describe "#price_in" do
     it "returns the sale price if it is present" do
       variant = create(:variant, sale_price: 8.00)
