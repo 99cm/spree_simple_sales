@@ -1,4 +1,4 @@
-Spree::Core::Engine.add_routes do
+Spree::Core::Engine.routes.draw do
   
   get "/sale", to: "home#sale"
   
