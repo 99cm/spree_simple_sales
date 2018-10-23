@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version     = SpreeSimpleSales.version
   s.summary     = 'Add extension summary here'
   s.description = 'Add (optional) extension description here'
-  s.required_ruby_version = '>= 2.2.7'
+  s.required_ruby_version = '>= 2.3.0'
 
   s.author    = 'You'
   s.email     = 'you@example.com'
@@ -22,29 +22,4 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.add_dependency 'spree_core', '>= 3.1.0', '< 4.0'
-  s.add_dependency 'spree_extension'
-  s.add_dependency 'spree_frontend'
-  s.add_dependency 'spree_api', '~> 3.4'
-
-  s.add_development_dependency 'capybara'
-  s.add_development_dependency 'capybara-screenshot'
-  s.add_development_dependency 'coffee-rails'
-  s.add_development_dependency 'database_cleaner'
-  s.add_development_dependency 'factory_bot'
-  s.add_development_dependency 'ffaker'
-  s.add_development_dependency 'rspec-rails'
-  s.add_development_dependency 'sass-rails'
-  s.add_development_dependency 'selenium-webdriver'
-  s.add_development_dependency 'poltergeist'
-  s.add_development_dependency 'simplecov'
-  
-  # First install this dependencies: 
-  # sudo apt-get install postgresql-client libpq5 libpq-dev
-  s.add_development_dependency 'pg'
-
-  # First install this dependencies: 
-  # sudo apt-get install libmysqlclient-dev
-  s.add_development_dependency 'mysql2'
-  s.add_development_dependency 'sqlite3'
-  s.add_development_dependency 'appraisal'
 end
